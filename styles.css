@@ -1,25 +1,35 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
 
-:root {
-    --body: rgba(215,215,235);
-    --primary: rgba(55,155,255);
+@media (prefers-color-scheme: light) {
+    :root {
+    --body: rgba(220,220,240);
     --white: white;
-    --light: rgba(235,235,255);
-    --dark: rgba(45,45,65);
-    --light-gray: rgb(200,200,200);
+    --light: rgba(240,240,255);
+    --dark: rgba(15,15,20);
     --transparent: rgba(240,240,255,0.8);
-    --shadow: 0px 2px 8px rgb(155,200,255);
-    --shadow-dark: 0px 1px 5px rgba(0,0,0,0.2);
-    --border: 1px solid rgba(0,0,0,0.3);
-    --gradient: linear-gradient(135deg, rgb(20,20,30), rgb(80,80,90));
+    --border: 1px solid rgba(0,0,0,0.2);
+    --gradient: linear-gradient(135deg, rgb(30,30,40), rgb(70,70,80));
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+    --body: rgba(0,0,0);
+    --white: white;
+    --light: rgba(30,30,35);
+    --dark: rgba(245,245,255);
+    --transparent: rgba(30,30,35,0.8);
+    --border: 1px solid rgba(255,255,255,0.2);
+    --gradient: linear-gradient(135deg, rgb(200,200,210), rgb(245,245,255));
+    }
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--gradient);
+    background-color: var(--dark);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--gradient);
+    background-color: var(--dark);
 }
 
 body {
@@ -41,22 +51,21 @@ a {
     grid-template-columns: 1fr;
     grid-template-areas: 
         'navbar navbar navbar navbar'
-        'navbar navbar navbar navbar'
-        'navbar navbar navbar navbar'
         'box-header box-header box-header box-header'
         'box box box box'
         'footer footer footer footer';
     justify-content: center;
     align-items: center;
-    gap: 1.15em;
-    padding: 1em;
+    gap: 1em;
+    padding: .5em;
+    
 }
 
 .navbar {
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; */
     grid-area: navbar;
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +75,7 @@ a {
     padding: 0;
     background-color: var(--light);
     box-shadow: var(--shadow-dark);
-    transition: all 0.5s ease;
+    border-radius: 8px;
     z-index: 999;
 }
 
@@ -105,16 +114,14 @@ a {
     padding: .5em 1em;
     border-radius: 8px;
     color: var(--light);
-    background-color: var(--primary);
-    box-shadow: var(--shadow);
+    background-image: var(--gradient);
+    box-shadow: var(--shadow-dark);
 }
 
 .box-header {
-    margin-top: 1rem;
     grid-area: box-header;
     padding: 2em 1em;
-    background-image: url(https://source.unsplash.com/gOdavfpH-3s);
-    background-attachment: fixed;
+    background-image: url(https://source.unsplash.com/xyuYk9oLA8I);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -123,9 +130,7 @@ a {
     color: var(--white);
     letter-spacing: -0.1rem;
     font-size: 2.5em;
-    text-shadow: var(--shadow-dark);
-    box-shadow: var(--shadow-dark);
-    border: var(--border);
+    text-shadow: var(--shadow);
 }
 
 .boxes {
@@ -157,9 +162,7 @@ a {
     border-radius: 8px;
     cursor: pointer;
     overflow: hidden;
-    box-shadow: var(--shadow-dark);
     transition: all .3s ease;
-    background-attachment: local;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -239,8 +242,7 @@ a {
 }
 
 footer {
-    padding-top: 2em;
-    padding-bottom: 1em;
+    padding: 1em;
     grid-area: footer;
     display: flex;
     gap: 1em;
@@ -248,7 +250,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-top: 1px solid var(--light-gray);
+    border-top: var(--border);
     font-weight: 500;
     color: var(--dark);
 }
@@ -278,27 +280,29 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--light);
-        animation: translateY .6s ease;
+        border-top: var(--border);
+        animation: scale .5s ease;
     }
 
     .nav-items > li , .nav-items > li > a {
+        color: var(--dark);
         width: 80%;
         display: flex;
         margin: auto;
         justify-content: center;
         justify-items: center;
         align-items: center;
+        transition: transform .4s ease;
     }
 
     .bars {
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
         height: 120%;
         padding: 1em 0em;
-        transition: all .6s ease;
     }
 
     .bars > div {
@@ -337,18 +341,24 @@ footer {
     }
 
     .boxes {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-@keyframes translateY {
+@keyframes scale {
     from {
-        transform: translateY(-20%);
+        transform: scale(1 , 0);
+        transform-origin: top;
+        opacity: 0;
+    }
+
+    50% {
         opacity: 0;
     }
 
     to {
-        transform: translateY(0);
+        transform: scale(1 , 1);
+        transform-origin: top;
         opacity: 1;
     }
 }

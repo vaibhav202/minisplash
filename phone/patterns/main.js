@@ -15,7 +15,7 @@ fetch(miniSplash)
             var images = document.createElement("div");
             var imagesDownloadLink = document.createElement("a");
             Object.assign(imagesDownloadLink, {
-                href: data.results[i].urls.raw,
+                href: data.results[i].urls.full,
                 target: '_blank'
             });
             imagesDownloadLink.appendChild(images);
