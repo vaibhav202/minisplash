@@ -125,7 +125,7 @@ a {
 }
 
 .box-header > p {
-    color: var(--light);
+    color: var(--white);
     font-weight: 450;
     font-size: 1em;
     letter-spacing: 0;
