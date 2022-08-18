@@ -266,7 +266,7 @@ footer {
 .buttons > a {
     background-color: var(--white);
     color: black;
-    padding: .2em .4em;
+    padding: .3em .4em;
     border-radius: 5px;
     display: block;
     width: 5em;
