@@ -1,13 +1,12 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap');
 
 @media (prefers-color-scheme: light) {
     :root {
         --body: rgba(230,230,230);
         --white: white;
-        --light: rgba(240,240,240);
+        --light: rgba(245,245,245);
         --dark: rgba(15,15,15);
-        --transparent: rgba(240,240,240,0.8);
+        --transparent: rgba(245,245,245,0.8);
         --border: 1px solid rgba(180,180,180);
     }
 }
@@ -17,7 +16,7 @@
         --body: rgba(0,0,0);
         --white: white;
         --light: rgba(30,30,30);
-        --dark: rgba(235,235,235);
+        --dark: rgba(245,245,245);
         --transparent: rgba(30,30,30,0.8);
         --border: 1px solid rgba(90,90,90);
     }
@@ -71,8 +70,8 @@ a {
     border: var(--border);
     border-radius: 5px;
     background-color: var(--transparent);
-    backdrop-filter: blur(2em) saturate(400%);
-    -webkit-backdrop-filter: blur(2em) saturate(400%);
+    backdrop-filter: blur(1.5em) saturate(500%);
+    -webkit-backdrop-filter: blur(1.5em) saturate(500%);
     z-index: 999;
 }
 
@@ -143,6 +142,16 @@ a {
     display: grid;
     gap: 1em;
     grid-area: box;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxes-desktop {
+    display: grid;
+    gap: 1em;
+    grid-area: box;
     grid-template-columns: 1fr 1fr;
     box-sizing: border-box;
     justify-content: center;
@@ -164,7 +173,6 @@ a {
     justify-content: flex-end;
     align-items: center;
     text-align: center;
-    height: 55vh;
     border: var(--border);
     border-radius: 5px;
     cursor: pointer;
@@ -173,6 +181,14 @@ a {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.box-height {
+    height: 45vh;
+}
+
+.box-height-phone {
+    height: 50vh;
 }
 
 .box > label {
@@ -297,7 +313,7 @@ footer {
         top: 0;
     }
 
-    .boxes , .boxes-device {
+    .boxes , .boxes-desktop , .boxes-device {
         gap: .5em;
     }
 
@@ -316,6 +332,10 @@ footer {
 @media screen and (max-width: 780px) {
     .boxes {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .boxes-desktop {
+        grid-template-columns: 1fr;
     }
 }
 

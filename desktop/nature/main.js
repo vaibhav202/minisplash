@@ -1,4 +1,4 @@
-const displayImages = document.querySelector(".boxes");
+const displayImages = document.querySelector(".boxes-desktop");
 const miniSplash = 'https://api.unsplash.com/search/photos/?per_page=50&order_by=latest&orientation=landscape&query=nature+forest+mountains+rivers&client_id=jNPKpYi80xqW7F7Ot37Mqsaft-NsbggphFw0WRAyw-E';
 fetch(miniSplash)
 .then(response =>{
@@ -18,7 +18,7 @@ fetch(miniSplash)
             target: '_blank'
         });
         imagesDownloadLink.appendChild(images);
-        images.classList.add('box');
+        images.classList.add('box','box-height');
         images.style.backgroundImage = 'url('+data.results[i].urls.regular+')';
         displayImages.appendChild(imagesDownloadLink);
     }

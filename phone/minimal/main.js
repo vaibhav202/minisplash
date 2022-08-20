@@ -18,7 +18,7 @@ fetch(miniSplash)
             target: '_blank'
         });
         imagesDownloadLink.appendChild(images);
-        images.classList.add('box');
+        images.classList.add('box','box-height-phone');
         images.style.backgroundImage = 'url('+data.results[i].urls.regular+')';
         displayImages.appendChild(imagesDownloadLink);
     }
