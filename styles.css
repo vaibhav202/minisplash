@@ -71,8 +71,8 @@ a {
     border: var(--border);
     border-radius: 5px;
     background-color: var(--transparent);
-    backdrop-filter: blur(2em) saturate(200%);
-    -webkit-backdrop-filter: blur(2em) saturate(200%);
+    backdrop-filter: blur(2em) saturate(400%);
+    -webkit-backdrop-filter: blur(2em) saturate(400%);
     z-index: 999;
 }
 
