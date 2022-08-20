@@ -1,5 +1,5 @@
 const displayImages = document.querySelector(".boxes");
-const miniSplash = 'https://api.unsplash.com/search/photos/?per_page=30&order_by=latest&orientation=portrait&query=patterns&client_id=jNPKpYi80xqW7F7Ot37Mqsaft-NsbggphFw0WRAyw-E';
+const miniSplash = 'https://api.unsplash.com/search/photos/?per_page=50&order_by=latest&orientation=portrait&query=patterns&client_id=jNPKpYi80xqW7F7Ot37Mqsaft-NsbggphFw0WRAyw-E';
 fetch(miniSplash)
 .then(response =>{
     if(response.ok){
