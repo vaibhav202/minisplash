@@ -1,24 +1,24 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @media (prefers-color-scheme: light) {
     :root {
-        --body: rgba(230,230,230);
-        --white: white;
-        --light: rgba(245,245,245);
-        --dark: rgba(15,15,15);
-        --transparent: rgba(245,245,245,0.8);
-        --border: 1px solid rgba(180,180,180);
+        --body: #eeeeee;
+        --white: #fafafa;
+        --light: #fafafa;
+        --dark: #212121;
+        --shadow: rgba(0,0,0,0.2);
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --body: rgba(0,0,0);
-        --white: white;
-        --light: rgba(30,30,30);
-        --dark: rgba(245,245,245);
-        --transparent: rgba(30,30,30,0.8);
-        --border: 1px solid rgba(90,90,90);
+        --body: #101010;
+        --white: #fafafa;
+        --light: #212121;
+        --dark: #fafafa;
+        --shadow: rgba(0,0,0,0.2);
     }
 }
 
@@ -28,7 +28,7 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    font-family: 'General Sans' , sans-serif;
+    font-family: 'Roboto' , sans-serif;
     background-color: var(--body);
     overflow-x: hidden;
     scroll-behavior:smooth;
@@ -52,9 +52,7 @@ a {
         'footer footer footer footer';
     justify-content: center;
     align-items: center;
-    width: 80%;
-    gap: 1em;
-    padding: 1em;
+    width: 100%;
 }
 
 .navbar {
@@ -67,21 +65,22 @@ a {
     align-items: center;
     text-align: center;
     padding: 1em .5em;
-    border: var(--border);
-    border-radius: 5px;
-    background-color: var(--transparent);
-    backdrop-filter: blur(2em) saturate(500%);
-    -webkit-backdrop-filter: blur(2em) saturate(500%);
+    box-shadow: 0 5px 5px -5px var(--shadow);
+    background-color: var(--light);
     z-index: 999;
 }
 
 .logo {
     grid-area: logo;
-    text-align: center;
-    font-weight: 300;
-    font-size: 3rem;
-    letter-spacing: -0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: -0.15rem;
     color: var(--dark);
+    background-color: var(--light);
 }
 
 #menuToggler , .bars {
@@ -98,8 +97,7 @@ a {
     justify-content: center;
     align-items: center;
     list-style: none;
-    letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 18px;
 }
 
@@ -109,16 +107,16 @@ a {
 }
 
 .nav-items > li > a.active{
-    border-radius: 5em;
+    border-radius: 5px;
     color: var(--light);
     background-color: var(--dark);
-    box-shadow: var(--shadow-dark);
+    box-shadow: 0px 2px 4px var(--shadow);
 }
 
 .box-header {
     grid-area: box-header;
+    margin: 2rem 2rem 0 2rem;
     padding: 2em 1em;
-    border: var(--border);
     border-radius: 5px;
     background-image: url(https://source.unsplash.com/xyuYk9oLA8I);
     background-repeat: no-repeat;
@@ -128,19 +126,21 @@ a {
     color: var(--white);
     letter-spacing: -0.1rem;
     font-size: 2.5em;
+    box-shadow: 0px 0px 5px var(--shadow);
     text-shadow: var(--shadow);
 }
 
 .box-header > p {
     color: var(--white);
-    font-weight: 450;
-    font-size: 1em;
-    letter-spacing: 0;
+    font-weight: 400;
+    font-size: .9em;
+    letter-spacing: -1px;
 }
 
 .boxes {
     display: grid;
-    gap: 1em;
+    gap: 2em;
+    padding: 2rem;
     grid-area: box;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     box-sizing: border-box;
@@ -150,7 +150,8 @@ a {
 
 .boxes-desktop {
     display: grid;
-    gap: 1em;
+    gap: 2em;
+    padding: 2em;
     grid-area: box;
     grid-template-columns: 1fr 1fr;
     box-sizing: border-box;
@@ -160,7 +161,8 @@ a {
 
 .boxes-device {
     display: grid;
-    gap: 1em;
+    gap: 2em;
+    padding: 2em;
     grid-area: box;
     grid-template-columns: 1fr;
     justify-content: center;
@@ -173,8 +175,8 @@ a {
     justify-content: flex-end;
     align-items: center;
     text-align: center;
-    border: var(--border);
     border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--shadow);
     cursor: pointer;
     overflow: hidden;
     transition: all .3s ease;
@@ -198,8 +200,8 @@ a {
     font-weight: 500; 
     font-size: 20px;
     letter-spacing: 1px;
-    color: var(--dark);
-    background-color: var(--transparent);
+    color: var(--white);
+    background-color: rgba(0,0,0,0.5);
 }
 
 .device {
@@ -265,18 +267,17 @@ a {
 }
 
 footer {
-    padding: .5em;
+    padding: .5em 1em;
     grid-area: footer;
     display: flex;
-    gap: 1em;
+    gap: .5em;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: var(--light);
-    border: var(--border);
-    border-radius: 5px;
-    font-weight: 600;
+    box-shadow: 0px 0px 5px var(--shadow);
+    font-weight: 500;
     color: var(--dark);
 }
 
@@ -298,26 +299,17 @@ footer {
     display: block;
     width: 5em;
     text-align: center;
-    font-weight: 450;
+    font-weight: 400;
 }
 
 @media screen and (max-width: 1080px) {
-    .wrapper {
-        width: 100%;
-        gap: .5em;
-        padding: .5em;
-    }
-
-    .navbar {
-        border-radius: 5px;
-        top: 0;
-    }
-
     .boxes , .boxes-desktop , .boxes-device {
-        gap: .5em;
+        gap: 1em;
+        padding: 1em;
     }
 
     .box-header {
+        margin: 1rem 1rem 0 1rem;
         padding: 1.5em;
         font-size: 1.5em;
     }
