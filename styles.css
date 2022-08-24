@@ -1,46 +1,41 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @media (prefers-color-scheme: light) {
     :root {
-        --body: #eeeeee;
-        --white: #fafafa;
-        --light: #fafafa;
-        --dark: #212121;
+        --body: whitesmoke;
+        --white: white;
+        --light: white;
+        --dark: black;
+        --transparent: rgba(255,255,255,0.8);
         --shadow: rgba(0,0,0,0.2);
     }
 }
-
 @media (prefers-color-scheme: dark) {
     :root {
-        --body: #101010;
-        --white: #fafafa;
-        --light: #212121;
-        --dark: #fafafa;
-        --shadow: rgba(0,0,0,0.2);
+        --body: black;
+        --white: white;
+        --light: rgb(20,20,20);
+        --dark: white;
+        --transparent: rgba(20,20,20,0.8);
+        --shadow: rgba(55,55,55,0.2);
     }
 }
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto' , sans-serif;
+    font-family: 'General Sans' , sans-serif;
     background-color: var(--body);
     overflow-x: hidden;
     scroll-behavior:smooth;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
-
 a {
     display: block;
     text-decoration: none;
 }
-
 .wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -54,7 +49,6 @@ a {
     align-items: center;
     width: 100%;
 }
-
 .navbar {
     position: sticky;
     top: 0;
@@ -66,27 +60,27 @@ a {
     text-align: center;
     padding: 1em .5em;
     box-shadow: 0 5px 5px -5px var(--shadow);
-    background-color: var(--light);
+    background-color: var(--transparent);
+    backdrop-filter: blur(20px) saturate(500%);
+    -webkit-backdrop-filter: blur(20px) saturate(500%);
     z-index: 999;
 }
-
 .logo {
     grid-area: logo;
+    margin: 2rem 0 2rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-weight: 700;
-    font-size: 2.5rem;
-    letter-spacing: -0.15rem;
+    font-weight: 200;
+    font-size: 3rem;
+    letter-spacing: -0.25rem;
     color: var(--dark);
-    background-color: var(--light);
+    background-color: var(--transparent);
 }
-
 #menuToggler , .bars {
     display: none;
 }
-
 .nav-items {
     display: flex;
     flex-wrap: wrap;
@@ -100,21 +94,21 @@ a {
     font-weight: 500;
     font-size: 18px;
 }
-
 .nav-items > li > a {
+    font-weight: 600;
     color: var(--dark);
     padding: .4em 1em;
+    text-transform: uppercase;
 }
-
 .nav-items > li > a.active{
     border-radius: 5px;
     color: var(--light);
     background-color: var(--dark);
     box-shadow: 0px 2px 4px var(--shadow);
 }
-
 .box-header {
     grid-area: box-header;
+    font-feature-settings: "salt";
     margin: 2rem 2rem 0 2rem;
     padding: 2em 1em;
     border-radius: 5px;
@@ -122,21 +116,19 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    font-size: 2.5em;
     text-align: center;
     color: var(--white);
-    letter-spacing: -0.1rem;
-    font-size: 2.5em;
     box-shadow: 0px 0px 5px var(--shadow);
-    text-shadow: var(--shadow);
 }
-
+.box-header > h2 {
+    font-weight: 600;
+    text-shadow: 0px 0px 5px var(--shadow);
+}
 .box-header > p {
     color: var(--white);
     font-weight: 400;
-    font-size: .9em;
-    letter-spacing: -1px;
 }
-
 .boxes {
     display: grid;
     gap: 2em;
@@ -144,10 +136,11 @@ a {
     grid-area: box;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     box-sizing: border-box;
+    object-fit: contain;
+    object-position: 50% 50%;
     justify-content: center;
     align-items: center;
 }
-
 .boxes-desktop {
     display: grid;
     gap: 2em;
@@ -155,20 +148,22 @@ a {
     grid-area: box;
     grid-template-columns: 1fr 1fr;
     box-sizing: border-box;
+    object-fit: contain;
+    object-position: 50% 50%;
     justify-content: center;
     align-items: center;
 }
-
 .boxes-device {
     display: grid;
     gap: 2em;
     padding: 2em;
     grid-area: box;
     grid-template-columns: 1fr;
+    object-fit: contain;
+    object-position: 50% 50%;
     justify-content: center;
     align-items: center;
 }
-
 .box {
     display: flex;
     flex-direction: column;
@@ -184,15 +179,12 @@ a {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .box-height {
-    height: 45vh;
+    min-height: 45vh;
 }
-
 .box-height-phone {
-    height: 50vh;
+    min-height: 50vh;
 }
-
 .box > label {
     cursor: pointer;
     width: 100%;
@@ -203,21 +195,17 @@ a {
     color: var(--white);
     background-color: rgba(0,0,0,0.5);
 }
-
 .device {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-
 .phone {
     background-image: url(https://source.unsplash.com/5xTYgw2g7aw);
 }
-
 .desktop {
     background-image: url(https://source.unsplash.com/2L-0vnCnzcU);
 }
-
 .a {
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?abstract);
@@ -225,7 +213,6 @@ a {
     background-position: center;
     background-size: cover;
 }
-
 .b {
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?aerial);
@@ -233,7 +220,6 @@ a {
     background-position: center;
     background-size: cover;
 }
-
 .c {
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?3d-render+render);
@@ -241,7 +227,6 @@ a {
     background-position: center;
     background-size: cover;
 }
-
 .d {
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?minimal);
@@ -249,7 +234,6 @@ a {
     background-position: center;
     background-size: cover;
 }
-
 .e {
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?nature);
@@ -257,7 +241,6 @@ a {
     background-position: center;
     background-size: cover;
 }
-
 .f {
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?patterns);
@@ -265,7 +248,6 @@ a {
     background-position: center;
     background-size: cover;
 }
-
 footer {
     padding: .5em 1em;
     grid-area: footer;
@@ -280,7 +262,6 @@ footer {
     font-weight: 500;
     color: var(--dark);
 }
-
 .buttons {
     width: 100%;
     display: flex;
@@ -290,7 +271,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 .buttons > a {
     background-color: var(--white);
     color: black;
@@ -301,26 +281,26 @@ footer {
     text-align: center;
     font-weight: 400;
 }
-
 @media screen and (max-width: 1080px) {
     .boxes , .boxes-desktop , .boxes-device {
-        gap: 1em;
-        padding: 1em;
+        gap: .5em;
+        padding: .5em;
     }
 
     .box-header {
-        margin: 1rem 1rem 0 1rem;
+        margin: .5rem .5rem 0 .5rem;
         padding: 1.5em;
+    }
+
+    .box-header {
         font-size: 1.5em;
     }
 }
-
 @media screen and (min-width: 780px) {
     .boxes-device {
         grid-template-columns: 1fr 1fr;
     }
 }
-
 @media screen and (max-width: 780px) {
     .boxes {
         grid-template-columns: 1fr 1fr;
@@ -330,7 +310,6 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-
 @media screen and (max-width: 230px) {
     .logo {
         font-size: 2.5rem;
