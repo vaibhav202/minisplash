@@ -1,22 +1,19 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
 @media (prefers-color-scheme: light) {
     :root {
-        --body: whitesmoke;
+        --body: white;
         --white: white;
         --light: white;
         --dark: black;
-        --transparent: rgba(255,255,255,0.8);
-        --shadow: rgba(0,0,0,0.2);
+        --shadow: rgba(0,0,0,0.2)
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --body: black;
         --white: white;
-        --light: rgb(20,20,20);
+        --light: black;
         --dark: white;
-        --transparent: rgba(20,20,20,0.8);
-        --shadow: rgba(55,55,55,0.2);
     }
 }
 body {
@@ -33,7 +30,6 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 a {
-    display: block;
     text-decoration: none;
 }
 .wrapper {
@@ -58,25 +54,22 @@ a {
     justify-content: center; 
     align-items: center;
     text-align: center;
-    padding: 1em .5em;
+    padding: 1em 0.5em;
     box-shadow: 0 5px 5px -5px var(--shadow);
-    background-color: var(--transparent);
-    backdrop-filter: blur(20px) saturate(500%);
-    -webkit-backdrop-filter: blur(20px) saturate(500%);
+    background-color: var(--light);
     z-index: 999;
 }
 .logo {
     grid-area: logo;
-    margin: 2rem 0 2rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     font-weight: 200;
-    font-size: 3rem;
-    letter-spacing: -0.25rem;
+    font-size: 2.5rem;
+    letter-spacing: -0.15rem;
     color: var(--dark);
-    background-color: var(--transparent);
+    background-color: var(--light);
 }
 #menuToggler , .bars {
     display: none;
@@ -85,9 +78,9 @@ a {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: .5em;
     margin: 0;
     padding: 0;
+    gap: 2em;
     justify-content: center;
     align-items: center;
     list-style: none;
@@ -95,24 +88,24 @@ a {
     font-size: 18px;
 }
 .nav-items > li > a {
+    padding: 0.2em 0;
     font-weight: 600;
     color: var(--dark);
-    padding: .4em 1em;
+    border-bottom: 2px solid transparent;
     text-transform: uppercase;
+    text-decoration: none;
 }
 .nav-items > li > a.active{
-    border-radius: 5px;
-    color: var(--light);
-    background-color: var(--dark);
-    box-shadow: 0px 2px 4px var(--shadow);
+    color: var(--dark);
+    border-bottom: 2px solid var(--dark);
 }
 .box-header {
     grid-area: box-header;
     font-feature-settings: "salt";
-    margin: 2rem 2rem 0 2rem;
+    margin: 1rem 1rem 0 1rem;
     padding: 2em 1em;
     border-radius: 5px;
-    background-image: url(https://source.unsplash.com/xyuYk9oLA8I);
+    background-image: url(https://source.unsplash.com/VbC-EiOTDqA);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -131,8 +124,8 @@ a {
 }
 .boxes {
     display: grid;
-    gap: 2em;
-    padding: 2rem;
+    gap: 1em;
+    padding: 1rem;
     grid-area: box;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     box-sizing: border-box;
@@ -143,8 +136,8 @@ a {
 }
 .boxes-desktop {
     display: grid;
-    gap: 2em;
-    padding: 2em;
+    gap: 1em;
+    padding: 1em;
     grid-area: box;
     grid-template-columns: 1fr 1fr;
     box-sizing: border-box;
@@ -155,8 +148,8 @@ a {
 }
 .boxes-device {
     display: grid;
-    gap: 2em;
-    padding: 2em;
+    gap: 1em;
+    padding: 1em;
     grid-area: box;
     grid-template-columns: 1fr;
     object-fit: contain;
@@ -243,7 +236,14 @@ a {
 }
 .f {
     background-color: var(--light);
-    background: url(https://source.unsplash.com/512x512/?patterns);
+    background: url(https://source.unsplash.com/512x512/?mountain);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.g {
+    background-color: var(--light);
+    background: url(https://source.unsplash.com/512x512/?blossom);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -258,7 +258,6 @@ footer {
     justify-content: space-around;
     align-items: center;
     background-color: var(--light);
-    box-shadow: 0px 0px 5px var(--shadow);
     font-weight: 500;
     color: var(--dark);
 }
@@ -312,6 +311,6 @@ footer {
 }
 @media screen and (max-width: 230px) {
     .logo {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
