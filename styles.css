@@ -1,19 +1,22 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
 @media (prefers-color-scheme: light) {
     :root {
-        --body: white;
+        --body: #f5f5f5;
         --white: white;
-        --light: white;
-        --dark: black;
+        --light: #f5f5f5;
+        --dark: #212121;
+        --gray: #e0e0e0;
         --shadow: rgba(0,0,0,0.2)
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --body: black;
+        --body: #212121;
         --white: white;
-        --light: black;
-        --dark: white;
+        --light: #212121;
+        --dark: #f5f5f5;
+        --gray: #424242;
+        --shadow: rgba(0,0,0,0.6)
     }
 }
 body {
@@ -49,27 +52,28 @@ a {
     position: sticky;
     top: 0;
     grid-area: navbar;
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     justify-content: center; 
     align-items: center;
     text-align: center;
-    padding: 1em 0.5em;
+    padding: 1.2em 0.5em;
     box-shadow: 0 5px 5px -5px var(--shadow);
     background-color: var(--light);
     z-index: 999;
 }
 .logo {
     grid-area: logo;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-weight: 200;
+    margin: 0;
+    padding: 0.5rem;
+    display: block;
+    text-align: center;
+    font-weight: 700;
     font-size: 2.5rem;
-    letter-spacing: -0.15rem;
+    text-decoration:dotted;
     color: var(--dark);
     background-color: var(--light);
+    border-bottom: 1px solid var(--gray);
 }
 #menuToggler , .bars {
     display: none;
@@ -85,10 +89,10 @@ a {
     align-items: center;
     list-style: none;
     font-weight: 500;
-    font-size: 18px;
 }
 .nav-items > li > a {
     padding: 0.2em 0;
+    letter-spacing: 0.2rem;
     font-weight: 600;
     color: var(--dark);
     border-bottom: 2px solid transparent;
@@ -125,39 +129,39 @@ a {
 .boxes {
     display: grid;
     gap: 1em;
-    padding: 1rem;
+    padding: 1em;
     grid-area: box;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    box-sizing: border-box;
-    object-fit: contain;
-    object-position: 50% 50%;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(6,1fr);
+    justify-content: start;
+    align-items:flex-start;
 }
 .boxes-desktop {
     display: grid;
     gap: 1em;
     padding: 1em;
     grid-area: box;
-    grid-template-columns: 1fr 1fr;
-    box-sizing: border-box;
-    object-fit: contain;
-    object-position: 50% 50%;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: start;
+    align-items:flex-start;
 }
 .boxes-device {
+    height: 45vh;
     display: grid;
     gap: 1em;
     padding: 1em;
     grid-area: box;
-    grid-template-columns: 1fr;
-    object-fit: contain;
-    object-position: 50% 50%;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(2,1fr);
+}
+.boxes-categories {
+    display: grid;
+    gap: 1em;
+    padding: 1em;
+    grid-area: box;
+    grid-template-columns: repeat(2,1fr);
 }
 .box {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -168,15 +172,18 @@ a {
     cursor: pointer;
     overflow: hidden;
     transition: all .3s ease;
-    background-size: cover;
+    /* background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
-.box-height {
-    min-height: 45vh;
-}
-.box-height-phone {
+/* .box-height-phone {
     min-height: 50vh;
+} */
+.box > img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
 }
 .box > label {
     cursor: pointer;
@@ -200,6 +207,7 @@ a {
     background-image: url(https://source.unsplash.com/2L-0vnCnzcU);
 }
 .a {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?abstract);
     background-repeat: no-repeat;
@@ -207,6 +215,7 @@ a {
     background-size: cover;
 }
 .b {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?aerial);
     background-repeat: no-repeat;
@@ -214,6 +223,7 @@ a {
     background-size: cover;
 }
 .c {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?3d-render+render);
     background-repeat: no-repeat;
@@ -221,6 +231,7 @@ a {
     background-size: cover;
 }
 .d {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?minimal);
     background-repeat: no-repeat;
@@ -228,6 +239,7 @@ a {
     background-size: cover;
 }
 .e {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?nature);
     background-repeat: no-repeat;
@@ -235,6 +247,7 @@ a {
     background-size: cover;
 }
 .f {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?mountain);
     background-repeat: no-repeat;
@@ -242,6 +255,7 @@ a {
     background-size: cover;
 }
 .g {
+    height: 40vh;
     background-color: var(--light);
     background: url(https://source.unsplash.com/512x512/?blossom);
     background-repeat: no-repeat;
@@ -281,32 +295,32 @@ footer {
     font-weight: 400;
 }
 @media screen and (max-width: 1080px) {
-    .boxes , .boxes-desktop , .boxes-device {
+    /* .boxes , .boxes-desktop , .boxes-device , .boxes-categories {
         gap: .5em;
         padding: .5em;
     }
-
     .box-header {
         margin: .5rem .5rem 0 .5rem;
         padding: 1.5em;
-    }
-
+    } */
     .box-header {
         font-size: 1.5em;
     }
 }
 @media screen and (min-width: 780px) {
     .boxes-device {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2,1fr);
     }
 }
 @media screen and (max-width: 780px) {
     .boxes {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2,1fr);
     }
-
     .boxes-desktop {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .boxes-categories {
+        grid-template-columns: repeat(1,1fr);
     }
 }
 @media screen and (max-width: 230px) {

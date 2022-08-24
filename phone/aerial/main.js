@@ -11,15 +11,15 @@ fetch(miniSplash)
 })
 .then(data =>{
     for(i = 0 ; i < data.results.length; i++){
-        var images = document.createElement("div");
+        var images = document.createElement("img");
         var imagesDownloadLink = document.createElement("a");
         Object.assign(imagesDownloadLink, {
             href: data.results[i].urls.full,
             target: '_blank'
         });
         imagesDownloadLink.appendChild(images);
-        images.classList.add('box','box-height-phone');
-        images.style.backgroundImage = 'url('+data.results[i].urls.regular+')';
+        imagesDownloadLink.classList.add('box');
+        images.setAttribute('src' , data.results[i].urls.regular);
         displayImages.appendChild(imagesDownloadLink);
     }
 });
