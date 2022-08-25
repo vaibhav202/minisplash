@@ -1,21 +1,21 @@
-@import url("https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=poppins@1&display=swap");
 @media (prefers-color-scheme: light) {
     :root {
         --body: #fafafa;
         --white: white;
         --light: #fafafa;
         --dark: #212121;
-        --gray: #bdbdbd;
+        --gray: #e0e0e0;
         --transparent: rgba(0, 0, 0, 0.5);
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --body: #212121;
+        --body: black;
         --white: white;
-        --light: #212121;
+        --light: black;
         --dark: #fafafa;
-        --gray: #161616;
+        --gray: #212121;
         --transparent: rgba(0,0,0,0.5);
     }
 }
@@ -25,7 +25,8 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    font-family: 'General Sans' , sans-serif;
+    font-family: 'Poppins' , sans-serif;
+    text-rendering: optimizeLegibility;
     background-color: var(--body);
     overflow-x: hidden;
     scroll-behavior:smooth;
@@ -58,7 +59,7 @@ a {
     align-items: center;
     text-align: center;
     padding: 1.2em 0.5em;
-    border-bottom: 1px inset var(--gray);
+    border-bottom: 2px solid var(--gray);
     background-color: var(--light);
     z-index: 999;
 }
@@ -68,12 +69,12 @@ a {
     padding: 0.5rem;
     display: block;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 2.5rem;
     text-decoration:dotted;
     color: var(--dark);
     background-color: var(--light);
-    border-bottom: 1px inset var(--gray);
+    border-bottom: 1px solid var(--gray);
 }
 #menuToggler , .bars {
     display: none;
@@ -84,35 +85,39 @@ a {
     flex-direction: row;
     margin: 0;
     padding: 0;
-    gap: 2em;
+    gap: .5em;
     justify-content: center;
     align-items: center;
     list-style: none;
     font-weight: 500;
 }
 .nav-items > li > a {
-    padding: 0.2em 0;
+    border-radius: 10px;
+    padding: .5em 1em;
     letter-spacing: 0.2rem;
     font-weight: 600;
     color: var(--dark);
-    border-bottom: 2px solid transparent;
     text-transform: uppercase;
     text-decoration: none;
 }
 .nav-items > li > a.active{
     color: var(--dark);
-    border-bottom: 2px solid var(--dark);
+    background-color: var(--gray);
 }
 .box-header {
     grid-area: box-header;
-    font-feature-settings: "salt";
     margin: 1rem 1rem 0 1rem;
     padding: 2em 1em;
     border-radius: 5px;
-    background-image: url(https://source.unsplash.com/VbC-EiOTDqA);
+    border: 1px solid var(--gray);
+    background-image: url(https://source.unsplash.com/GE5f_k4MPc4);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-image: url(https://source.unsplash.com/VbC-EiOTDqA);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
     font-size: 2.5em;
     text-align: center;
     color: var(--white);
@@ -168,8 +173,8 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 5px;
-    border-bottom: 1px inset var(--gray);
+    border-radius: 10px;
+    border: 1px solid var(--gray);
     cursor: pointer;
     overflow: hidden;
     transition: all .3s ease;
