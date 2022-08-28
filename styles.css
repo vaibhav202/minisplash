@@ -65,8 +65,7 @@ a {
     text-align: center;
     padding: 1em 0.5em;
     box-shadow: 0 0 0 2px var(--gray);
-    background-color: var(--transparent2);
-    backdrop-filter: blur(20px) saturate(500%);
+    background-color: var(--light);
     z-index: 999;
 }
 .logo {
