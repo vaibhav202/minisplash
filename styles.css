@@ -320,14 +320,14 @@ footer {
         padding: .5em;
     }*/
     .box-header {
-        padding: 2em .5em;
+        padding: 1.5em .2em;
     }
     .box-header > h2{
         font-size: 2.5em;
         letter-spacing: -0.03em;
     }
     .box-header > p{
-        padding: 0.6em;
+        padding: 0.4em;
         font-size: 1.5em;
         letter-spacing: -0.02em;
     }
