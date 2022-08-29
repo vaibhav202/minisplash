@@ -1,31 +1,37 @@
-@import url("https://api.fontshare.com/v2/css?f[]=poppins@1&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap");
 @media (prefers-color-scheme: light) {
     :root {
-        --body: white;
+        --body: rgb(242,242,247);
         --white: white;
-        --light: white;
-        --dark: #212121;
-        --gray: #e0e0e0;
-        --transparent: rgba(0, 0, 0, 0.5);
-        --transparent2: rgba(255, 255, 255, 0.8);
+        --blue: rgb(0,122,255);
+        --alpha-blue: rgba(0,122,255,0.1);
+        --light: rgb(242,242,247);
+        --dark: rgb(28,28,30);
+        --gray: rgb(229,229,234);
+        --transparent: rgba(0, 0, 0, 0.4);
+        --transparent2: rgba(242, 242, 247, 0.8);
+        --gradient: linear-gradient(135deg , var(--blue) , var(--alpha-blue));
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --body: black;
+        --body: rgb(28,28,30);
         --white: white;
-        --light: black;
-        --dark: white;
-        --gray: #212121;
-        --transparent: rgba(0,0,0,0.5);
-        --transparent2: rgba(0, 0, 0, 0.8);
+        --blue: rgb(10,132,255);
+        --alpha-blue: rgba(10,132,255,0.1);
+        --light: rgb(28,28,30);
+        --dark: rgb(242,242,247);
+        --gray: rgb(44,44,46);
+        --transparent: rgba(0,0,0,0.4);
+        --transparent2: rgba(28, 28, 30, 0.8);
+        --gradient: linear-gradient(135deg , var(--blue) , var(--alpha-blue));
     }
 }
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Satoshi' , sans-serif;
     text-rendering: optimizeLegibility;
     scroll-behavior:smooth;
     user-select: none;
@@ -64,8 +70,10 @@ a {
     align-items: center;
     text-align: center;
     padding: 1em 0.5em;
-    box-shadow: 0 0 0 2px var(--gray);
-    background-color: var(--light);
+    box-shadow: 0 0 0 1px var(--gray);
+    background-color: var(--transparent2);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     z-index: 999;
 }
 .logo {
@@ -74,11 +82,11 @@ a {
     padding: 0.5rem;
     display: block;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 2.5rem;
-    text-decoration:dotted;
-    color: var(--dark);
-    background-color: var(--light);
+    letter-spacing: -0.03em;
+    color: var(--white);
+    background-color: black;
 }
 #menuToggler , .bars {
     display: none;
@@ -97,15 +105,13 @@ a {
 }
 .nav-items > li > a {
     border-radius: 10px;
-    padding: .5em 1em;
-    letter-spacing: 0.2rem;
+    padding: .3em 1em;
+    font-size: 1.2em;
     font-weight: 600;
     color: var(--dark);
-    text-transform: uppercase;
     text-decoration: none;
 }
 .nav-items > li > a.active{
-    color: var(--dark);
     background-color: var(--gray);
 }
 .box-header {
@@ -115,26 +121,23 @@ a {
     justify-content: center;
     align-items: center;
     margin: 1rem 1rem 0 1rem;
-    padding: 6em 2em;
+    padding: 2em;
     border-radius: 10px;
-    box-shadow: 0 0 0 2px var(--gray);
-    background-image: url(https://source.unsplash.com/GE5f_k4MPc4);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     text-align: center;
-    color: var(--white);
+    color: var(--dark);
 }
 .box-header > h2 {
-    font-size: 2.5em;
-    font-weight: 600;
+    font-size: 4em;
+    font-weight: 700;
+    letter-spacing: -0.05em;
     text-shadow: 0px 0px 5px var(--shadow);
 }
 .box-header > p {
     padding: 0.6em 6em;
-    color: var(--white);
+    color: var(--dark);
     font-size: 2.2em;
     font-weight: 400;
+    letter-spacing: -0.04em;
 }
 .boxes {
     display: grid;
@@ -179,7 +182,7 @@ a {
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 0 0 2px var(--gray);
+    box-shadow: 0 0 0 1px var(--gray);
     cursor: pointer;
     overflow: hidden;
     /* background-size: cover;
@@ -289,8 +292,8 @@ footer {
     justify-content: space-around;
     align-items: center;
     background-color: var(--light);
-    box-shadow: 0 0 0 2px var(--gray);
-    font-weight: 400;
+    box-shadow: 0 0 0 1px var(--gray);
+    font-weight: 500;
     color: var(--dark);
 }
 .buttons {
@@ -308,10 +311,10 @@ footer {
     padding: .3em .4em;
     border-radius: 10px;
     width: 6em;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.05em;
     text-align: center;
-    font-size: 1.3em;
-    font-weight: 400;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 @media screen and (max-width: 1080px) {
     /* .boxes , .boxes-desktop , .boxes-device , .boxes-categories {
@@ -319,14 +322,16 @@ footer {
         padding: .5em;
     }*/
     .box-header {
-        padding: 3em 1em;
+        padding: 2em .5em;
     }
     .box-header > h2{
-        font-size: 1.8em;
+        font-size: 2.5em;
+        letter-spacing: -0.03em;
     }
     .box-header > p{
         padding: 0.6em;
-        font-size: 1.3em;
+        font-size: 1.5em;
+        letter-spacing: -0.02em;
     }
 }
 @media screen and (min-width: 780px) {
