@@ -6,7 +6,7 @@
         --blue: rgb(0,122,255);
         --alpha-blue: rgba(0,122,255,0.1);
         --light: rgb(242,242,247);
-        --dark: rgb(28,28,30);
+        --dark: rgb(28, 28, 30);
         --gray: rgb(229,229,234);
         --transparent: rgba(0, 0, 0, 0.4);
         --transparent2: rgba(242, 242, 247, 0.8);
@@ -82,9 +82,9 @@ a {
     text-align: center;
     font-weight: 700;
     font-size: 2.5rem;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    background-color: black;
+    letter-spacing: -0.04em;
+    color: var(--dark);
+    background-color: var(--light);
 }
 #menuToggler , .bars {
     display: none;
