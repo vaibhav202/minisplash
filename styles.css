@@ -71,9 +71,7 @@ a {
     text-align: center;
     padding: 1em 0.5em;
     box-shadow: 0 0 0 1px var(--gray);
-    background-color: var(--transparent2);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: var(--light);
     z-index: 999;
 }
 .logo {
