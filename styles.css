@@ -1,4 +1,7 @@
-@import url("https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap");
+@font-face {
+    font-family: Cantarell;
+    src: url(/fonts/Cantarell-VF.otf);
+}
 @media (prefers-color-scheme: light) {
     :root {
         --body: rgb(242,242,247);
@@ -31,7 +34,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Satoshi' , sans-serif;
+    font-family: 'Cantarell' , sans-serif;
     text-rendering: optimizeLegibility;
     scroll-behavior:smooth;
     user-select: none;
@@ -115,6 +118,7 @@ a {
 .box-header {
     grid-area: box-header;
     display: flex;
+    gap: 2em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -314,13 +318,13 @@ footer {
     font-size: 1.5em;
     font-weight: 500;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 900px) {
     /* .boxes , .boxes-desktop , .boxes-device , .boxes-categories {
         gap: .5em;
         padding: .5em;
     }*/
     .box-header {
-        padding: 1.5em .2em;
+        padding: 1.5em .3em;
     }
     .box-header > h2{
         font-size: 2.5em;
