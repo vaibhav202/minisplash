@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1c1c1e" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1c1c1c" media="(prefers-color-scheme: dark)">
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles.css">
@@ -14,10 +14,15 @@
 <body> 
 
     <div class="wrapper">
-        <h1 class="logo">miniSplash</h1>
+        <input type="checkbox" id="nav-items-toggler">
         <nav class="navbar">
-            <ul class="nav-items">
-                <li><a href="./index.html">Home</a></li>
+            <h1 class="logo">miniSplash</h1>
+            <label for="nav-items-toggler" class="bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </label>
+            <ul class="nav-items"><li><a href="./index.html">Home</a></li>
                 <li><a class="active">About</a></li>
             </ul>
         </nav>

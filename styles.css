@@ -9,7 +9,7 @@
         --white: white;
         --blue: rgb(0,155,255);
         --alpha-blue: rgba(0,155,255,0.1);
-        --light: rgb(252,252,252);
+        --light: rgb(252, 252, 252);
         --dark: rgb(28, 28, 28);
         --gray: rgb(232,232,232);
         --transparent: rgba(0, 0, 0, 0.4);
@@ -51,8 +51,7 @@ a {
 .wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas: 
-        'logo logo logo logo'
+    grid-template-areas:
         'navbar navbar navbar navbar'
         'box-header box-header box-header box-header'
         'box box box box'
@@ -65,27 +64,26 @@ a {
     position: sticky;
     top: 0;
     grid-area: navbar;
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: space-around; 
     align-items: center;
     text-align: center;
-    padding: 1em 0.5em;
-    box-shadow: 0 -1px 0 var(--gray);
+    gap: 1em;
+    padding: 1em;
     background-color: var(--light);
     z-index: 999;
 }
 .logo {
-    grid-area: logo;
     margin: 0;
-    padding: 0.5rem;
-    display: block;
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     letter-spacing: -0.06em;
     color: var(--dark);
-    background-color: var(--light);
+}
+#nav-items-toggler , .bars {
+    display: none;       
 }
 .nav-items {
     display: flex;
@@ -93,7 +91,6 @@ a {
     flex-direction: row;
     margin: 0;
     padding: 0;
-    gap: .5em;
     justify-content: center;
     align-items: center;
     list-style: none;
@@ -340,6 +337,70 @@ footer {
     }
     .boxes-categories {
         grid-template-columns: repeat(1,1fr);
+    }
+}
+@media screen and (max-width: 480px) {
+    #nav-items-toggler {
+        display: block;
+        visibility: hidden;
+        position: absolute;
+    }
+    .nav-items {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: -100%;
+        transform-origin: right;
+        background-color: var(--light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        gap: 4em;
+        width: 100%;
+        height: 100%;
+        transition: all .5s ease;
+    }
+    .bars {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-end;
+        height: 100%;
+        padding: .5rem;
+        z-index: 1000;
+    }
+    .bars > div {
+        background-color: var(--dark);
+        border-radius: 1em;
+        height: 2.5px;
+        transition: all .5s ease;
+    }
+    .bar1 {
+        width: 2em;
+        transform: translateY(-4.5px);
+    }
+    .bar2 {
+        width: 1.5em;
+    }
+    .bar3 {
+        width: 1em;
+        transform: translateY(4.5px);
+    }
+    #nav-items-toggler:checked ~ .navbar .nav-items {
+        right: 0;
+    }
+    #nav-items-toggler:checked ~ .navbar .bars .bar1 {
+        transform: translateY(2.5px) rotate(-45deg);
+    }
+    #nav-items-toggler:checked ~ .navbar .bars .bar2 {
+        transform: scale(0);
+    }
+    #nav-items-toggler:checked ~ .navbar .bars .bar3 {
+        width: 2em;
+        transform: translateY(-2.5px) rotate(45deg);
     }
 }
 @media screen and (max-width: 230px) {
