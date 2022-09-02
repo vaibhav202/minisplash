@@ -342,9 +342,6 @@ footer {
     }
 }
 @media screen and (max-width: 480px) {
-    .navbar{
-        justify-content: space-between;
-    }
     .nav-items {
         position:absolute;     
         top: 100%;   
