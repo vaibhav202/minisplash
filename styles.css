@@ -60,29 +60,27 @@ a {
     align-items: center;
     width: 100%;
     gap: .5em;
-    padding: 1em;
 }
 .navbar {
     position: sticky;
-    top: 1em;
+    top: 0;
     grid-area: navbar;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; 
+    justify-content: space-between; 
     align-items: center;
     text-align: center;
     gap: 1em;
-    padding: 1em;
+    padding: 1em 2em;
     background-color: var(--light);
-    border-radius: .3em;
     z-index: 999;
 }
 .logo {
     margin: 0;
     text-align: center;
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: -0.05em;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
     color: var(--dark);
     background-color: var(--light);
 }
@@ -140,6 +138,7 @@ a {
 .boxes {
     display: grid;
     gap: .5em;
+    padding: .5em;
     grid-area: box;
     grid-template-columns: repeat(5,1fr);
     justify-content: start;
@@ -148,6 +147,7 @@ a {
 .boxes-desktop {
     display: grid;
     gap: .5em;
+    padding: .5em;
     grid-area: box;
     grid-template-columns: repeat(3,1fr);
     justify-content: start;
@@ -158,12 +158,14 @@ a {
     max-height: 45vh;
     display: grid;
     gap: .5em;
+    padding: .5em;
     grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
 .boxes-categories {
     display: grid;
     gap: .5em;
+    padding: .5em;
     grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
@@ -349,13 +351,11 @@ footer {
         transform: scale(1 , 0);
         transform-origin: top;
         background-color: var(--light);
-        border-bottom-left-radius: .3em;
-        border-bottom-right-radius: .3em;
         box-shadow: 0 -1px 0 var(--gray);
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;         
         align-items: center;
         gap: 2em;
         width: 100%;
@@ -364,9 +364,10 @@ footer {
         transition: transform .4s ease;
         z-index: -1000;
     }
-    .nav-items > li {
+    .nav-items  li {
         transform: scale(0);
-        transition: transform 0.2s ease;
+        opacity: 0;
+        transition: all 0.2s ease;
     }
     .bars {
         display: flex;
@@ -402,17 +403,13 @@ footer {
     }
     #nav-items-toggler:checked ~ .navbar .nav-items > li {
         transform: scale(1);
-        transition: transform 0.4s ease;
+        opacity: 1;
+        transition: all 0.4s ease;
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar1 {
         transform: translateY(3px) rotate(-45deg);
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar2 {
         transform: translateY(0) rotate(45deg);
-    }
-}
-@media screen and (max-width: 230px) {
-    .logo {
-        font-size: 2rem;
     }
 }
