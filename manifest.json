@@ -4,7 +4,6 @@
   "dir": "ltr",
   "display": "standalone",
   "name": "miniSplash",
-  "orientation": "any",
   "scope": "/",
   "short_name": "miniSplash",
   "start_url": "/",
