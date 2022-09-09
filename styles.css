@@ -154,8 +154,7 @@ a {
     align-items:flex-start;
 }
 .boxes-device {
-    min-height: 80vh;
-    max-height: 45vh;
+    height: 70vh;
     display: grid;
     gap: .5em;
     padding: .5em;
@@ -208,13 +207,12 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
 }
 .phone {
-    background-image: url(https://source.unsplash.com/R3pUGn5YiTg);
+    background-image: url(https://source.unsplash.com/7ANd7X2lCb8);
 }
 .desktop {
-    background-image: url(https://source.unsplash.com/R3pUGn5YiTg);
+    background-image: url(https://source.unsplash.com/s033XMRJ2ME);
     filter:hue-rotate(45deg);
 }
 .a {
@@ -348,10 +346,6 @@ footer {
         justify-content: space-between;
         padding: .6em 2em;
     }
-    .logo {
-        justify-self: center;
-        align-self: center;
-    }
     .nav-items {
         position: absolute;
         top: 100%;
@@ -361,7 +355,6 @@ footer {
         background-color: var(--light);
         box-shadow: 0 -1px 0 var(--gray);
         display: flex;
-        flex-wrap: nowrap;
         flex-direction: column;
         justify-content: start;         
         align-items: center;
