@@ -76,7 +76,7 @@ a {
     z-index: 999;
 }
 .logo {
-    margin: 0;
+    justify-self: center;
     text-align: center;
     font-size: 1.6rem;
     font-weight: 400;
@@ -348,11 +348,15 @@ footer {
         justify-content: space-between;
         padding: .6em 2em;
     }
+    .logo {
+        justify-self: center;
+        align-self: center;
+    }
     .nav-items {
-        position:absolute;     
-        top: 100%;   
+        position: absolute;
+        top: 100%;
         left: 0;
-        transform: scale(1 , 0);
+        scale: 1 0;
         transform-origin: top;
         background-color: var(--light);
         box-shadow: 0 -1px 0 var(--gray);
@@ -365,13 +369,11 @@ footer {
         width: 100%;
         padding: 2em 0;
         overflow-y: auto;
-        transition: transform .4s ease;
-        z-index: -1000;
+        transition: all .4s ease;
     }
     .nav-items  li {
-        transform: scale(0);
         opacity: 0;
-        transition: all 0.2s ease;
+        transition: opacity .14s ease;        
     }
     .bars {
         display: flex;
@@ -379,43 +381,40 @@ footer {
         justify-content: flex-end;
         align-items: flex-end;
         height: 100%;
-        padding: .5em 0;
+        padding: .6em 0;
         z-index: 1000;
     }
     .bars > div {
+        position: relative;
         background-color: var(--dark);
         border-radius: 1em;
         height: 2px;
-        transition: all .4s ease;
+        width: 2em;
     }
     .bar1 {
-        width: 2em;
-        transform: translateY(-3px);
-        transform-origin: bottom;
+        top: 6px;
+        transition: top .4s ease;
     }
     .bar2 {
-        width: 2em;
-        transform: translateY(3px);
-        transform-origin: top;
-    }
-    #nav-items-toggler:checked ~ .navbar {
-        border-top-left-radius: 0.3em;
-        border-top-right-radius: .3em;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        bottom: 6px;
+        transition: bottom .4s ease;
     }
     #nav-items-toggler:checked ~ .navbar .nav-items {
-        transform: scale(1 , 1);
+        scale: 1;
     }
     #nav-items-toggler:checked ~ .navbar .nav-items > li {
-        transform: scale(1);
         opacity: 1;
-        transition: all 0.4s ease;
+        transition: opacity .4s ease;
+        transition-delay: .2s;
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar1 {
-        transform: translateY(2px) rotate(-45deg);
+        top: 1px;
+        rotate: -45deg;
+        transition: rotate .4s ease;
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar2 {
-        transform: translateY(0px) rotate(45deg);
+        bottom: 1px;
+        rotate: 45deg;
+        transition: rotate .4s ease;
     }
 }
