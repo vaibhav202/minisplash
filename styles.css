@@ -71,15 +71,15 @@ a {
     align-items: center;
     text-align: center;
     gap: 1em;
-    padding: .6em 0;
+    height: 50px;
     background-color: var(--light);
     z-index: 999;
 }
 .logo {
     justify-self: center;
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.7rem;
+    font-weight: 600;
     letter-spacing: -0.03em;
     color: var(--dark);
     background-color: var(--light);
@@ -123,9 +123,10 @@ a {
     color: var(--dark);
 }
 .box-header > h2 {
+    font-feature-settings: "salt";
     font-size: 4em;
-    font-weight: 600;
-    letter-spacing: -0.06em;
+    font-weight: 500;
+    letter-spacing: -0.05em;
     text-shadow: 0px 0px 5px var(--shadow);
 }
 .box-header > p {
@@ -344,7 +345,7 @@ footer {
 @media screen and (max-width: 480px) {
     .navbar {
         justify-content: space-between;
-        padding: .6em 2em;
+        padding: 0 2em;
     }
     .nav-items {
         position: absolute;
@@ -362,16 +363,16 @@ footer {
         width: 100%;
         padding: 2em 0;
         overflow-y: auto;
-        transition: all .4s ease;
+        transition: all .3s ease;
     }
     .nav-items  li {
         opacity: 0;
-        transition: opacity .14s ease;        
+        transition: opacity .13s ease;        
     }
     .bars {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: flex-end;
         height: 100%;
         padding: .6em 0;
@@ -381,33 +382,33 @@ footer {
         position: relative;
         background-color: var(--dark);
         border-radius: 1em;
-        height: 2px;
+        height: 3px;
         width: 2em;
     }
     .bar1 {
         top: 6px;
-        transition: top .4s ease;
+        transition: top .3s ease;
     }
     .bar2 {
         bottom: 6px;
-        transition: bottom .4s ease;
+        transition: bottom .3s ease;
     }
     #nav-items-toggler:checked ~ .navbar .nav-items {
         scale: 1;
     }
     #nav-items-toggler:checked ~ .navbar .nav-items > li {
         opacity: 1;
-        transition: opacity .4s ease;
-        transition-delay: .2s;
+        transition: opacity .3s ease;
+        transition-delay: .3s;
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar1 {
-        top: 1px;
+        top: 1.5px;
         rotate: -45deg;
-        transition: top .4s ease , rotate .4s ease .2s;
+        transition: top .3s ease , rotate .3s ease .2s;
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar2 {
-        bottom: 1px;
+        bottom: 1.5px;
         rotate: 45deg;
-        transition: bottom .4s ease , rotate .4s ease .2s;
+        transition: bottom .3s ease , rotate .3s ease .2s;
     }
 }
