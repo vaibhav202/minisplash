@@ -403,11 +403,11 @@ footer {
     #nav-items-toggler:checked ~ .navbar .bars .bar1 {
         top: 1px;
         rotate: -45deg;
-        transition: rotate .4s ease;
+        transition: top .4s ease , rotate .4s ease .2s;
     }
     #nav-items-toggler:checked ~ .navbar .bars .bar2 {
         bottom: 1px;
         rotate: 45deg;
-        transition: rotate .4s ease;
+        transition: bottom .4s ease , rotate .4s ease .2s;
     }
 }
