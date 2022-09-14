@@ -1,7 +1,3 @@
-/* @font-face {
-    font-family: Cantarell;
-    src: url(/fonts/Cantarell-VF.otf);
-} */
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet');
 @media (prefers-color-scheme: light) {
     :root {
@@ -39,16 +35,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--body);
-    overflow-x: hidden;
-}
-a {
-    text-decoration: none;
-}
-.wrapper {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -59,7 +45,11 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: .5em;
+    background-color: var(--body);
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
 }
 .navbar {
     position: sticky;
@@ -110,7 +100,7 @@ a {
 .nav-items > li > a.active{
     background-color: var(--gray);
 }
-.box-header {
+header {
     grid-area: box-header;
     display: flex;
     gap: 2em;
@@ -122,13 +112,13 @@ a {
     text-align: center;
     color: var(--dark);
 }
-.box-header > h2 {
+header > h2 {
     font-size: 4em;
     font-weight: 600;
     letter-spacing: -0.05em;
     text-shadow: 0px 0px 5px var(--shadow);
 }
-.box-header > p {
+header > p {
     padding: 0.6em 6em;
     color: var(--dark);
     font-size: 2.2em;
@@ -281,7 +271,6 @@ footer {
     justify-content: space-around;
     align-items: center;
     background-color: var(--light);
-    border-radius: .3em;
     font-weight: 500;
     color: var(--dark);
 }
@@ -309,14 +298,14 @@ footer {
         gap: .5em;
         padding: .5em;
     }*/
-    .box-header {
+    header {
         padding: 1.5em 1em;
     }
-    .box-header > h2{
+    header > h2{
         font-size: 2.5em;
         letter-spacing: -0.03em;
     }
-    .box-header > p{
+    header > p{
         padding: 0.4em;
         font-size: 1.5em;
         letter-spacing: -0.02em;
@@ -392,20 +381,20 @@ footer {
         bottom: 5px;
         transition: rotate .4s ease , bottom .4s ease .25s;
     }
-    #nav-items-toggler:checked ~ .navbar .nav-items {
+    #nav-items-toggler:checked ~ .nav-items {
         scale: 1;
     }
-    #nav-items-toggler:checked ~ .navbar .nav-items > li {
+    #nav-items-toggler:checked ~ .nav-items > li {
         opacity: 1;
         transition: opacity .4s ease;
         transition-delay: .2s;
     }
-    #nav-items-toggler:checked ~ .navbar .bars .bar1 {
+    #nav-items-toggler:checked ~ .bars .bar1 {
         top: 1px;
         rotate: -45deg;
         transition: top .4s ease , rotate .4s ease .25s;
     }
-    #nav-items-toggler:checked ~ .navbar .bars .bar2 {
+    #nav-items-toggler:checked ~ .bars .bar2 {
         bottom: 1px;
         rotate: 45deg;
         transition: bottom .4s ease , rotate .4s ease .25s;

@@ -10,40 +10,35 @@
     <link rel="stylesheet" href="styles.css">
     <title>Wallpapers from Unsplash</title>
 </head>
-<body> 
-
-    <div class="wrapper">
+<body class="wrapper">
+    <nav class="navbar">
+        <h1 class="logo">miniSplash</h1>
         <input type="checkbox" id="nav-items-toggler">
-        <nav class="navbar">
-            <h1 class="logo">miniSplash</h1>
-            <label for="nav-items-toggler" class="bars">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-            </label>
-            <ul class="nav-items">
-                <li><a class="active" href="">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-            </ul>
-        </nav>
-
-        <div class="box-header">
-            <h2>Wallpapers from Unsplash</h2>
-        </div>
-
-        <div class="boxes-device">
-            <a class="box box-height device phone" href="./phone">
-                    <label>For Phone</label>
-            </a>
-
-            <a class="box box-height device desktop" href="./desktop">
-                    <label>For Desktop</label>
-            </a>
-        </div>
-        <footer>
-            <p>&copy; 2022 &CenterDot; Vaibhav Pancholi</p>
-            <p>Powered by Unsplash API</p>
-        </footer>
-    </div>
+        <label for="nav-items-toggler" class="bars">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+        </label>
+        <ul class="nav-items">
+            <li><a class="active" href="">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h2>Wallpapers from Unsplash</h2>
+    </header>
+    <main class="boxes-device">
+        <a class="box box-height device phone" href="./phone">
+            <label>For Phone</label>
+        </a>
+    
+        <a class="box box-height device desktop" href="./desktop">
+            <label>For Desktop</label>
+        </a>
+    </main>
+    <footer>
+        <p>&copy; 2022 &CenterDot; Vaibhav Pancholi</p>
+        <p>Powered by Unsplash API</p>
+    </footer>
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
         const el = document.createElement('pwa-update');
