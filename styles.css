@@ -178,7 +178,7 @@ header > p {
     justify-content: center;
     align-items: center;
     text-align: center;
-    box-shadow: 0 0 0 2px var(--gray);
+    box-shadow: 0 0 0 1px var(--gray);
     border-radius: .6em;
     cursor: pointer;
     overflow: hidden;
@@ -351,6 +351,7 @@ footer {
     .navbar {
         justify-content: space-between;
         padding: 0 2em;
+        transition: background-color .4s ease;
     }
     .nav-items {
         position: absolute;
@@ -405,20 +406,23 @@ footer {
         bottom: 5px;
         transition: rotate .4s ease , bottom .4s ease .25s;
     }
-    #nav-items-toggler:checked ~ .nav-items {
+    #nav-items-toggler:checked ~ nav {
+        background-color: var(--light);
+    }
+    #nav-items-toggler:checked ~ nav .nav-items {
         scale: 1;
     }
-    #nav-items-toggler:checked ~ .nav-items li {
+    #nav-items-toggler:checked ~ nav .nav-items li {
         width: 100%;
         opacity: 1;
         transition: opacity .8s ease;
     }
-    #nav-items-toggler:checked ~ .bars .bar1 {
+    #nav-items-toggler:checked ~ nav .bars .bar1 {
         top: 1px;
         rotate: -45deg;
         transition: top .4s ease , rotate .4s ease .25s;
     }
-    #nav-items-toggler:checked ~ .bars .bar2 {
+    #nav-items-toggler:checked ~ nav .bars .bar2 {
         bottom: 1px;
         rotate: 45deg;
         transition: bottom .4s ease , rotate .4s ease .25s;
