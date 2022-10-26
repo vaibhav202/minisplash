@@ -71,7 +71,7 @@ a {
     align-items: center;
     text-align: center;
     gap: 5em;
-    height: 55px;
+    height: 60px;
     background-color: var(--transparent2);
     z-index: 999;
 }
@@ -139,7 +139,7 @@ header > p {
 }
 .boxes {
     display: grid;
-    gap: .5em;
+    gap: 1em;
     padding: 1em;
     grid-area: box;
     grid-template-columns: repeat(5,1fr);
@@ -148,7 +148,7 @@ header > p {
 }
 .boxes-desktop {
     display: grid;
-    gap: .5em;
+    gap: 1em;
     padding: 1em;
     grid-area: box;
     grid-template-columns: repeat(3,1fr);
@@ -158,14 +158,14 @@ header > p {
 .boxes-device {
     height: 70vh;
     display: grid;
-    gap: .5em;
+    gap: 1em;
     padding: 1em;
     grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
 .boxes-categories {
     display: grid;
-    gap: .5em;
+    gap: 1em;
     padding: 1em;
     grid-area: box;
     grid-template-columns: repeat(2,1fr);
