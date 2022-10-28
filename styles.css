@@ -1,26 +1,26 @@
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap" rel="stylesheet');
 @media (prefers-color-scheme: light) {
     :root {
-        --body: rgb(242,242,242);
         --white: white;
+        --nav-bar: rgba(0,0,0,0.8);
         --light: rgb(252, 252, 252);
-        --dark: rgb(28, 28, 28);
+        --dark: rgb(8, 8, 8);
         --gray: rgb(232,232,232);
         --scroll-bar: rgb(182,182,182);
         --transparent: rgba(0, 0, 0, 0.4);
-        --transparent2: rgba(252, 252, 252, 0.9);
+        --transparent2: rgba(252, 252, 252, 0.8);
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --body: rgb(18,18,18);
         --white: white;
-        --light: rgb(28,28,28);
+        --nav-bar: rgba(8,8,8,0.8);
+        --light: rgb(8,8,8);
         --dark: rgb(252,252,252);
-        --gray: rgb(38,38,38);
+        --gray: rgb(28,28,28);
         --scroll-bar: rgb(82,82,82);
         --transparent: rgba(0,0,0,0.4);
-        --transparent2: rgba(28, 28, 28, 0.9);
+        --transparent2: rgba(28, 28, 28, 0.8);
     }
 }
 * {
@@ -55,7 +55,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    background-color: var(--body);
+    background-color: var(--light);
     overflow-x: hidden;
 }
 a {
@@ -64,15 +64,18 @@ a {
 .navbar {
     position: sticky;
     top: 0;
+    width: 100vw;
     grid-area: navbar;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; 
     align-items: center;
     text-align: center;
-    gap: 5em;
-    height: 60px;
-    background-color: var(--transparent2);
+    gap: 1em;
+    height: 50px;
+    background-color: var(--nav-bar);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     z-index: 999;
 }
 .logo {
@@ -80,9 +83,9 @@ a {
     justify-self: center;
     text-align: center;
     font-size: 1.6rem;
-    font-weight: 450;
+    font-weight: 400;
     letter-spacing: -0.05em;
-    color: var(--dark);
+    color: var(--white);
 }
 #nav-items-toggler , .bars {
     display: none;       
@@ -93,24 +96,23 @@ a {
     flex-direction: row;
     margin: 0;
     padding: 0;
-    
     justify-content: center;
     align-items: center;
     list-style: none;
     font-weight: 500;
 }
 .nav-items > li > a {
-    border-radius: .6em;
+    border-radius: .5em;
     padding: .3em 1em;
     font-size: 1.2em;
     font-weight: 500;
-    color: var(--dark);
+    color: var(--white);
     text-decoration: none;
     z-index: -2000;
 }
 .nav-items > li > a.active{
-    box-shadow: 0 0 0 2px var(--light);
-    background-color: var(--gray);
+    color: rgb(8,8,8);
+    background-color: rgb(128,128,128);
 }
 header {
     grid-area: box-header;
@@ -120,7 +122,7 @@ header {
     justify-content: center;
     align-items: center;
     padding: 2em;
-    box-shadow: 0 1px 0 var(--gray);
+    border: 1px solid var(--gray);
     text-align: center;
     color: var(--dark);
 }
@@ -287,7 +289,8 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--gray);
+    background-color: var(--light);
+    box-shadow: 0 -1px 0 var(--gray);
     font-weight: 500;
     color: var(--dark);
 }
@@ -347,40 +350,49 @@ footer {
         grid-template-columns: repeat(1,1fr);
     }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 680px) {
     .navbar {
         justify-content: space-between;
         padding: 0 2em;
-        transition: background-color .4s ease;
+        transition: background-color 3s ease;
     }
     .nav-items {
         position: absolute;
         top: 100%;
-        left: 0;
-        scale: 1 0;
-        transform-origin: top;
-        background-color: var(--light);
-        box-shadow: 0 -1px 0 var(--gray);
+        right: 0;
+        background-color: rgb(8,8,8);
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;     
-        align-items: center;
-        gap: 2em;
+        justify-content: flex-start;
+        align-items:stretch;
+        flex-wrap: nowrap;
+        gap: 1em;
         width: 100vw;
-        padding: 2em;
+        height: 0;
         overflow-y: auto;
-        transition: scale .4s ease;
+        overflow-x: hidden;
+        transition: height .8s ease;
     }
     .nav-items li {
-        width: 100%;
-        opacity: 0;
-        transition: opacity .3s ease;
+        display: block;
+        padding-inline: 2em;
+        width: 100vw;
+    }
+    /* .nav-items li:nth-child(1n + 1){
+        padding-block: 1em;
+    } */
+    .nav-items li:nth-child(1){
+        padding-top: 1em;
+    }
+    .nav-items li:nth-last-child(1){
+        padding-bottom: 5em;
     }
     .nav-items li a {
-        padding: .5em;
+        border: 1px solid rgb(38,38,38);
+        padding: .5em 1em;
         display: block;
         text-align: center;
-        width: 100%;
+        width: auto;
     }
     .bars {
         display: flex;
@@ -393,7 +405,7 @@ footer {
     }
     .bars > div {
         position: relative;
-        background-color: var(--dark);
+        background-color: var(--white);
         border-radius: 1em;
         height: 2px;
         width: 2em;
@@ -407,15 +419,13 @@ footer {
         transition: rotate .4s ease , bottom .4s ease .25s;
     }
     #nav-items-toggler:checked ~ nav {
-        background-color: var(--light);
+        background-color: rgb(8,8,8);
+        transition: background-color .4s ease;
     }
     #nav-items-toggler:checked ~ nav .nav-items {
         scale: 1;
-    }
-    #nav-items-toggler:checked ~ nav .nav-items li {
-        width: 100%;
-        opacity: 1;
-        transition: opacity .8s ease;
+        height: 100vh;
+        overflow-y: auto;
     }
     #nav-items-toggler:checked ~ nav .bars .bar1 {
         top: 1px;
