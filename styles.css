@@ -415,17 +415,17 @@ footer {
         position: relative;
         background-color: var(--dark);
         border-radius: 1em;
-        height: 1.64px;
+        height: 1.65px;
     }
     .bar1 {
-        top: -3.24px;
+        top: -3px;
         width: 2.4em;
-        transition: rotate .4s ease , width .4s ease, top .4s ease .25s;
+        transition: width .4s ease .4s, rotate .4s ease, top .4s ease .4s;
     }
     .bar2 {
-        bottom: -3.24px;
-        width: 1.64em;
-        transition: rotate .4s ease , bottom .4s ease .25s;
+        bottom: -3px;
+        width: 1.65em;
+        transition: bottom .4s ease .4s, rotate .4s ease;
     }
     #nav-items-toggler:checked ~ nav {
         background-color: var(--light);
@@ -440,14 +440,14 @@ footer {
         transition: opacity .2s .4s ease;
     }
     #nav-items-toggler:checked ~ nav .bars .bar1 {
-        top: .82px;
-        width: 1.64em;
+        top: .825px;
+        width: 1.65em;
         rotate: -45deg;
-        transition: top .4s ease , width .4s ease, rotate .4s ease .25s;
+        transition: width .4s ease, top .4s ease .4s, rotate .4s ease .26s;
     }
     #nav-items-toggler:checked ~ nav .bars .bar2 {
-        bottom: .82px;
+        bottom: .825px;
         rotate: 45deg;
-        transition: bottom .4s ease , rotate .4s ease .25s;
+        transition: bottom .4s ease, rotate .4s ease .26s;
     }
 }
