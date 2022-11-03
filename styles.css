@@ -78,8 +78,8 @@ a {
     height: 55px;
     box-shadow: 0 1px 0 var(--gray);
     background-color: var(--nav-bar);
-    backdrop-filter: saturate(255%);
-    -webkit-backdrop-filter: saturate(255%);
+    backdrop-filter: saturate(300%);
+    -webkit-backdrop-filter: saturate(300%);
     z-index: 999;
 }
 .logo {
