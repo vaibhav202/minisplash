@@ -2,7 +2,8 @@
 @media (prefers-color-scheme: light) {
     :root {
         --white: rgb(255, 255, 255);
-        --nav-bar: rgba(255, 255, 255, 0.9);
+        --nav-bar: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7));
+        --menu: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85));
         --light: white;
         --dark: black;
         --gray: rgb(235,235,235);
@@ -14,7 +15,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --white: white;
-        --nav-bar: #000000e6;
+        --nav-bar: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7));
+        --menu: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.85));
         --light: black;
         --dark: white;
         --gray: rgb(25,25,25);
@@ -46,6 +48,12 @@
 }
 html {
     width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2em;
+    overflow-y: auto;
 }
 body {
     display: grid;
@@ -55,11 +63,14 @@ body {
         'box-header'
         'box'
         'footer';
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
     background-color: var(--light);
+    border-radius: .5em;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 a {
     text-decoration: none;
@@ -76,8 +87,8 @@ a {
     text-align: center;
     gap: 1em;
     height: 55px;
-    box-shadow: 0 1px 0 var(--gray);
-    background-color: var(--nav-bar);
+    background-image: var(--nav-bar);
+    background-size: 100%;
     backdrop-filter: saturate(300%);
     -webkit-backdrop-filter: saturate(300%);
     z-index: 999;
@@ -127,7 +138,8 @@ header {
     justify-content: center;
     align-items: center;
     padding: 2em;
-    box-shadow: 0 1px 0 var(--gray);
+    border-top: 1px solid var(--gray);
+    
     text-align: center;
     color: var(--dark);
 }
@@ -147,7 +159,7 @@ header > p {
 .boxes {
     display: grid;
     gap: 1em;
-    padding: 1em;
+    padding: 1em 0;
     grid-area: box;
     grid-template-columns: repeat(5,1fr);
     justify-content: start;
@@ -156,7 +168,7 @@ header > p {
 .boxes-desktop {
     display: grid;
     gap: 1em;
-    padding: 1em;
+    padding: 1em 0;
     grid-area: box;
     grid-template-columns: repeat(3,1fr);
     justify-content: start;
@@ -166,14 +178,14 @@ header > p {
     height: 70vh;
     display: grid;
     gap: 1em;
-    padding: 1em;
+    padding: 1em 0;
     grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
 .boxes-categories {
     display: grid;
     gap: 1em;
-    padding: 1em;
+    padding: 1em 0;
     grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
@@ -367,13 +379,13 @@ footer {
         left: 0;
         scale: 1 0;
         transform-origin: top;
-        background-color: var(--light);
+        background-image: var(--menu);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         gap: 1em;
-        width: 100vw;
+        width: 100%;
         height: 100vh;
         overflow-y: auto;
         overflow-x: hidden;
@@ -383,7 +395,7 @@ footer {
         opacity: 0;
         display: block;
         padding-inline: 2em;
-        width: 100vw;
+        width: 100%;
         transition: opacity .2s .1s ease;
     }
     /* .nav-items li:nth-child(1n + 1){
@@ -397,6 +409,7 @@ footer {
     }
     .nav-items li a {
         border: 2px solid var(--gray);
+        background-color: var(--light);
         padding: .5em 1em;
         display: block;
         text-align: center;
@@ -419,12 +432,12 @@ footer {
     }
     .bar1 {
         top: -3px;
-        width: 2.4em;
-        transition: width .4s ease .4s, rotate .4s ease, top .4s ease .4s;
+        width: 1.75em;
+        transition: top .4s ease .4s, rotate .4s ease;
     }
     .bar2 {
         bottom: -3px;
-        width: 1.65em;
+        width: 1.75em;
         transition: bottom .4s ease .4s, rotate .4s ease;
     }
     #nav-items-toggler:checked ~ nav {
@@ -441,13 +454,12 @@ footer {
     }
     #nav-items-toggler:checked ~ nav .bars .bar1 {
         top: .825px;
-        width: 1.65em;
         rotate: -45deg;
-        transition: width .4s ease, top .4s ease .4s, rotate .4s ease .26s;
+        transition: top .4s ease, rotate .4s ease .4s;
     }
     #nav-items-toggler:checked ~ nav .bars .bar2 {
         bottom: .825px;
         rotate: 45deg;
-        transition: bottom .4s ease, rotate .4s ease .26s;
+        transition: bottom .4s ease, rotate .4s ease .4s;
     }
 }
