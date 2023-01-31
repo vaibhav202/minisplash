@@ -3,7 +3,6 @@
     :root {
         --white: rgb(255, 255, 255);
         --nav-bar: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7));
-        --menu: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85));
         --light: white;
         --dark: black;
         --gray: rgb(235,235,235);
@@ -16,7 +15,6 @@
     :root {
         --white: white;
         --nav-bar: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7));
-        --menu: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.85));
         --light: black;
         --dark: white;
         --gray: rgb(25,25,25);
@@ -46,27 +44,15 @@
     background-color: var(--scroll-bar);
     border-radius: 1em;
 }
-html {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.2em;
-    overflow-y: auto;
-}
 body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        'navbar'
-        'box-header'
-        'box'
-        'footer';
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+    align-items: stretch;
+    width: 100vw;
     height: 100%;
+    padding: 0 2em;
     background-color: var(--light);
     border-radius: .5em;
     overflow-x: hidden;
@@ -79,9 +65,7 @@ a {
     position: sticky;
     top: 0;
     width: 100%;
-    grid-area: navbar;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around; 
     align-items: center;
     text-align: center;
@@ -89,8 +73,8 @@ a {
     height: 55px;
     background-image: var(--nav-bar);
     background-size: 100%;
-    backdrop-filter: saturate(300%);
-    -webkit-backdrop-filter: saturate(300%);
+    backdrop-filter: blur(30px) saturate(300%);
+    -webkit-backdrop-filter: blur(30px) saturate(300%);
     z-index: 999;
 }
 .logo {
@@ -104,6 +88,9 @@ a {
 }
 #nav-items-toggler , .bars {
     display: none;       
+}
+body > .nav-items{
+    display: none;
 }
 .nav-items {
     display: flex;
@@ -131,15 +118,12 @@ a {
     box-shadow: 0 0 0 1px var(--transparent2);
 }
 header {
-    grid-area: box-header;
     display: flex;
     gap: 2em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2em;
     border-top: 1px solid var(--gray);
-    
     text-align: center;
     color: var(--dark);
 }
@@ -160,7 +144,6 @@ header > p {
     display: grid;
     gap: 1em;
     padding: 1em 0;
-    grid-area: box;
     grid-template-columns: repeat(5,1fr);
     justify-content: start;
     align-items:flex-start;
@@ -169,7 +152,6 @@ header > p {
     display: grid;
     gap: 1em;
     padding: 1em 0;
-    grid-area: box;
     grid-template-columns: repeat(3,1fr);
     justify-content: start;
     align-items:flex-start;
@@ -179,14 +161,12 @@ header > p {
     display: grid;
     gap: 1em;
     padding: 1em 0;
-    grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
 .boxes-categories {
     display: grid;
     gap: 1em;
     padding: 1em 0;
-    grid-area: box;
     grid-template-columns: repeat(2,1fr);
 }
 .box {
@@ -197,7 +177,7 @@ header > p {
     justify-content: center;
     align-items: center;
     text-align: center;
-    box-shadow: 0 0 0 1px var(--gray);
+    border: 1px solid var(--gray);
     border-radius: .6em;
     cursor: pointer;
     overflow: hidden;
@@ -205,6 +185,7 @@ header > p {
 .box > img {
     object-fit: cover;
     object-position: center;
+    display: block;
     width: 100%;
     height: 100%;
 }
@@ -294,7 +275,6 @@ header > p {
     background-size: cover;
 }
 footer {
-    grid-area: footer;
     padding: 1.5em;
     position: relative;
     bottom: 0;
@@ -331,10 +311,6 @@ footer {
     font-weight: 400;
 }
 @media screen and (max-width: 900px) {
-    /* .boxes , .boxes-desktop , .boxes-device , .boxes-categories {
-        gap: .5em;
-        padding: .5em;
-    }*/
     header {
         padding: 1.5em 1em;
     }
@@ -370,52 +346,44 @@ footer {
 @media screen and (max-width: 680px) {
     .navbar {
         justify-content: space-between;
-        padding: 0 2em;
         transition: background-color 1.8s ease;
     }
-    .nav-items {
-        position: absolute;
-        top: 100%;
+    .navbar .nav-items{
+        display: none;
+    }
+    body .nav-items {
+        position: fixed;
+        top: 55px;
         left: 0;
-        scale: 1 0;
-        transform-origin: top;
-        background-image: var(--menu);
+        background-image: var(--nav-bar);
+        backdrop-filter: blur(30px) saturate(300%);
+        -webkit-backdrop-filter: blur(30px) saturate(300%);
         display: flex;
+        gap: 1em;
+        flex-wrap: nowrap;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
-        gap: 1em;
+        align-items: stretch;
         width: 100%;
-        height: 100vh;
-        overflow-y: auto;
+        height: 0;
         overflow-x: hidden;
-        transition: scale .8s ease;
+        transition: height 1s ease;
+        z-index: 999;
     }
     .nav-items li {
-        opacity: 0;
         display: block;
         padding-inline: 2em;
         width: 100%;
-        transition: opacity .2s .1s ease;
-    }
-    /* .nav-items li:nth-child(1n + 1){
-        padding-block: 1em;
-    } */
-    .nav-items li:nth-child(1){
-        padding-top: 1em;
-    }
-    .nav-items li:nth-last-child(1){
-        padding-bottom: 5em;
     }
     .nav-items li a {
-        border: 2px solid var(--gray);
+        border: 1px solid var(--gray);
         background-color: var(--light);
         padding: .5em 1em;
         display: block;
         text-align: center;
-        width: auto;
     }
     .bars {
+        grid-area: bars;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -440,17 +408,16 @@ footer {
         width: 1.75em;
         transition: bottom .4s ease .4s, rotate .4s ease;
     }
+    #nav-items-toggler:checked .wrapper{
+        position: fixed;
+        overflow: hidden;
+    }
     #nav-items-toggler:checked ~ nav {
         background-color: var(--light);
         transition: background-color .4s ease;
     }
-    #nav-items-toggler:checked ~ nav .nav-items {
-        scale: 1;
-        overflow-y: auto;
-    }
-    #nav-items-toggler:checked ~ nav .nav-items li {
-        opacity: 1;
-        transition: opacity .2s .4s ease;
+    #nav-items-toggler:checked ~ .nav-items {
+        height: 100%;
     }
     #nav-items-toggler:checked ~ nav .bars .bar1 {
         top: .825px;
