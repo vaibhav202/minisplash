@@ -1,4 +1,4 @@
-const displayImages = document.querySelector(".boxes-desktop");
+const displayImages = document.querySelector(".img-container");
 const miniSplash = 'https://api.unsplash.com/search/photos/?per_page=50&order_by=latest&content_filter=high&orientation=landscape&query=mountain&client_id=jNPKpYi80xqW7F7Ot37Mqsaft-NsbggphFw0WRAyw-E';
 fetch(miniSplash)
 .then(response =>{
