@@ -604,7 +604,7 @@ nav{
 
 @media screen and (max-width:639px) {
   nav{
-    top: -4.15rem;
+    top: -4.1rem;
   }
 }
 
@@ -758,7 +758,6 @@ header {
   font-size: 3rem;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: -0.05em;
   --tw-text-opacity: 1;
   color: rgb(161 161 170 / var(--tw-text-opacity));
 }
