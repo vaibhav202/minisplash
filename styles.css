@@ -528,19 +528,12 @@ video {
   src: url('./fonts/Inter.var.ttf');
 }
 
-:root{
-  --zinc-800: @apply bg-zinc-800;
-  --clr-img: linear-gradient(90deg, rgb(39,39,42), rgb(39,39,42));
-}
-
 * {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   scroll-behavior: smooth;
   font-family: Inter, system-ui;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 *:focus {
@@ -548,7 +541,8 @@ video {
 }
 
 *{
-  text-rendering: geometricPrecision;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -556,7 +550,6 @@ body {
   height: 100%;
   width: 100vw;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: flex-start;
   overflow-x: hidden;
   --tw-bg-opacity: 1;
@@ -606,7 +599,7 @@ nav {
 
 nav{
   /* top: -4.15rem; */
-  animation: top-2-bottom 1s ease;
+  animation: top-2-bottom 1s ease !important;
 }
 
 @media screen and (max-width:639px) {
@@ -624,6 +617,10 @@ nav h1 {
   nav h1 {
     padding: 0px;
   }
+}
+
+nav h1{
+  font-feature-settings:"salt";
 }
 
 nav ul {
@@ -718,11 +715,7 @@ input {
 }
 
 main {
-  position: relative;
-  grid-column: span 3 / span 3;
   display: flex;
-  height: 100%;
-  width: 100%;
   flex-direction: column;
   align-items: center;
 }
@@ -783,7 +776,7 @@ header .buttons {
   gap: 1rem;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0em;
 }
 
@@ -801,8 +794,6 @@ header .buttons a {
 
 .device, .category {
   display: grid;
-  min-height: 100%;
-  width: 100%;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   align-items: center;
   justify-content: flex-start;
@@ -872,8 +863,6 @@ header .buttons a {
 .box {
   position: relative;
   display: flex;
-  height: 100%;
-  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -960,13 +949,6 @@ footer {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-/*thumbnails*/
-
-.phone, .desktop {
-  height: 100%;
-  width: 100%;
 }
 
 .a {
