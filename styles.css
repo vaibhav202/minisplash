@@ -5,7 +5,8 @@
 *::after{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     user-select: none;
     scroll-behavior: smooth;
     text-rendering: auto;
@@ -15,6 +16,8 @@
     list-style: none;
     color: rgba(255,255,255,0.85);
     -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+            user-select: none;
 }
 body{
     width: 100vw;
@@ -111,7 +114,8 @@ header{
 }
 header h2{
     text-shadow: 0 0 100px rgba(255,255,255,0.8);
-    font-feature-settings: "salt";
+    -webkit-font-feature-settings: "salt";
+            font-feature-settings: "salt";
     font-size: 3rem;
     font-weight: 200;
     letter-spacing: -.15rem;
@@ -324,7 +328,7 @@ footer{
 }
 
 
-/* small screen */
+/* large screen */
 @media screen and (min-width: 800px){
     main{
         width: 80%;
