@@ -110,11 +110,12 @@ header{
     transition: all .2s ease;
 }
 header h2{
-    text-shadow: 0 0 100px rgb(200,200,200);
+    text-shadow: 0 0 100px rgba(255,255,255,0.8);
+    font-feature-settings: "salt";
     font-size: 3rem;
     font-weight: 200;
-    letter-spacing: -3px;
-    line-height: 1;
+    letter-spacing: -.15rem;
+    line-height: 1.1;
 }
 header p{
     font-size: 1.3rem;
@@ -138,8 +139,8 @@ img{
     height: 100%;
     display: block;
     object-fit: cover;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    transition: all .5s ease;
 }
 .device{
     display: flex;
@@ -175,27 +176,56 @@ img{
     grid-template-columns: 1fr;
 }
 .box{
+    position: relative;
+    cursor: pointer;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid rgb(40,40,40);
+    box-shadow: 0 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.box label{
+.box.phone label, .box.desktop label, .box label{
+    position: absolute;
+    cursor: pointer;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     -webkit-backdrop-filter: saturate(125%);
             backdrop-filter: saturate(125%);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     text-shadow: 0 0 10px rgba(0,0,0,0.8);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: scale 0.5s ease;
+}
+.box.phone label:hover, .box.desktop label:hover, .box label:hover{
+    scale: 1.25;
+}
+.box.phone label:active, .box.desktop label:active, .box label:active{
+    scale: 1;
+}
+.phone{
+    min-height: 50vh;
+    background: url(https://source.unsplash.com/1mdV8fuUzZs);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s ease;
+}
+.desktop{
+    min-height: 50vh;
+    background: url(https://source.unsplash.com/yNvVnPcurD8);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s ease;
 }
 .a{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?abstract);
     background-repeat: no-repeat;
     background-position: center;
@@ -203,7 +233,7 @@ img{
 }
 
 .b{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?aerial);
     background-repeat: no-repeat;
     background-position: center;
@@ -211,7 +241,7 @@ img{
 }
 
 .c{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?3d-render+render);
     background-repeat: no-repeat;
     background-position: center;
@@ -219,7 +249,7 @@ img{
 }
 
 .d{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?minimal);
     background-repeat: no-repeat;
     background-position: center;
@@ -227,7 +257,7 @@ img{
 }
 
 .e{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?nature);
     background-repeat: no-repeat;
     background-position: center;
@@ -235,7 +265,7 @@ img{
 }
 
 .f{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?mountain);
     background-repeat: no-repeat;
     background-position: center;
@@ -243,7 +273,7 @@ img{
 }
 
 .g{
-    height: 40vh;
+    min-height: 50vh;
     background: url(https://source.unsplash.com/512x512/?blossom);
     background-repeat: no-repeat;
     background-position: center;
@@ -263,6 +293,7 @@ img{
     display: grid;
     gap: 1em;
     grid-template-columns: 1fr;
+    transition: all .5s ease;
 }
 .desktop-img-grid{
     width: 100%;
@@ -277,6 +308,7 @@ img{
     display: grid;
     gap: 1em;
     grid-template-columns: 1fr;
+    transition: all .5s ease;
 }
 footer{
     width: 100%;
@@ -295,7 +327,7 @@ footer{
 
 
 /* small screen */
-@media screen and (min-width: 768px){
+@media screen and (min-width: 800px){
     main{
         width: 80%;
     }
@@ -304,6 +336,7 @@ footer{
     }
     header p{
         width: 70%;
+        font-size: 1.8rem
     }
     .device{
         gap: 2em;
