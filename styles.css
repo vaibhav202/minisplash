@@ -209,23 +209,21 @@ img{
     scale: 1;
 }
 .phone{
-    min-height: 50vh;
-    background: url(https://source.unsplash.com/1mdV8fuUzZs);
+    height: 50vh;
+    background: url(https://source.unsplash.com/r9SdLRda3W0);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transition: all .5s ease;
 }
 .desktop{
-    min-height: 50vh;
-    background: url(https://source.unsplash.com/yNvVnPcurD8);
+    height: 50vh;
+    background: url(https://source.unsplash.com/kNx8H8ScHDk);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transition: all .5s ease;
 }
 .a{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?abstract);
     background-repeat: no-repeat;
     background-position: center;
@@ -233,7 +231,7 @@ img{
 }
 
 .b{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?aerial);
     background-repeat: no-repeat;
     background-position: center;
@@ -241,7 +239,7 @@ img{
 }
 
 .c{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?3d-render+render);
     background-repeat: no-repeat;
     background-position: center;
@@ -249,7 +247,7 @@ img{
 }
 
 .d{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?minimal);
     background-repeat: no-repeat;
     background-position: center;
@@ -257,7 +255,7 @@ img{
 }
 
 .e{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?nature);
     background-repeat: no-repeat;
     background-position: center;
@@ -265,7 +263,7 @@ img{
 }
 
 .f{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?mountain);
     background-repeat: no-repeat;
     background-position: center;
@@ -273,7 +271,7 @@ img{
 }
 
 .g{
-    min-height: 50vh;
+    height: 50vh;
     background: url(https://source.unsplash.com/512x512/?blossom);
     background-repeat: no-repeat;
     background-position: center;
