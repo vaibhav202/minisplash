@@ -180,7 +180,6 @@ img{
     grid-template-columns: 1fr;
 }
 .box{
-    position: relative;
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
@@ -191,7 +190,6 @@ img{
     justify-content: center;
 }
 .box.phone label, .box.desktop label, .box label{
-    position: absolute;
     cursor: pointer;
     width: 100%;
     height: 100%;
