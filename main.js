@@ -1,10 +1,10 @@
 var navBar = document.querySelector('nav');
 var body = document.body;
 var html = document.documentElement;
-var prevScroll = window.pageYOffset = window.scrollY;
+var prevScroll = window.scrollY;
 
 window.onscroll = function(){
-    var currentScroll = window.pageYOffset = window.scrollY;
+    var currentScroll = window.scrollY;
     
     if(prevScroll < currentScroll){
         navBar.style.transform = "translate(0, -100%)"; 
