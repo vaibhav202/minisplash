@@ -13,15 +13,15 @@ fetch(miniSplash)
 .then(data =>{
     for(i = 0 ; i < data.results.length; i++){
         var images = document.createElement("img");
-        var imagesDownloadLink = document.createElement("a");
-        Object.assign(imagesDownloadLink, {
-            href: data.results[i].urls.full,
-            target: '_blank'
-        });
-        imagesDownloadLink.appendChild(images);
-        imagesDownloadLink.classList.add('box');
-        images.setAttribute('src' , data.results[i].urls.regular);
-        displayImages.appendChild(imagesDownloadLink);
+        var linkToImg = document.createElement("a");
+        linkToImg.href = data.results[i].urls.raw;
+        linkToImg.target = 'imgOpened';
+        linkToImg.addEventListener('click', openingImg);
+        linkToImg.appendChild(images);
+        linkToImg.classList.add('box');
+        images.src = data.results[i].urls.small;
+        images.loading = 'lazy';
+        displayImages.appendChild(linkToImg);
     }
 });
 
@@ -40,14 +40,14 @@ fetch(miniSplash2)
 .then(data =>{
     for(i = 0 ; i < data.results.length; i++){
         var images = document.createElement("img");
-        var imagesDownloadLink = document.createElement("a");
-        Object.assign(imagesDownloadLink, {
-            href: data.results[i].urls.full,
-            target: '_blank'
-        });
-        imagesDownloadLink.appendChild(images);
-        imagesDownloadLink.classList.add('box');
-        images.setAttribute('src' , data.results[i].urls.regular);
-        displayImages2.appendChild(imagesDownloadLink);
+        var linkToImg = document.createElement("a");
+        linkToImg.href = data.results[i].urls.raw;
+        linkToImg.target = 'imgOpened';
+        linkToImg.addEventListener('click', openingImg);
+        linkToImg.appendChild(images);
+        linkToImg.classList.add('box');
+        images.src = data.results[i].urls.small;
+        images.loading = 'lazy';
+        displayImages2.appendChild(linkToImg);
     }
 });

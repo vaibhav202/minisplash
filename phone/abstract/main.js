@@ -1,6 +1,7 @@
 //first page
 const displayImages = document.querySelector(".img-container-1");
 const miniSplash = 'https://api.unsplash.com/search/photos/?per_page=30&order_by=latest&content_filter=high&orientation=portrait&query=abstract&client_id=jNPKpYi80xqW7F7Ot37Mqsaft-NsbggphFw0WRAyw-E';
+
 fetch(miniSplash)
 .then(response =>{
     if(response.ok){
@@ -13,15 +14,15 @@ fetch(miniSplash)
 .then(data =>{
     for(i = 0 ; i < data.results.length; i++){
         var images = document.createElement("img");
-        var imagesDownloadLink = document.createElement("a");
-        Object.assign(imagesDownloadLink, {
-            href: data.results[i].urls.full,
-            target: '_blank'
-        });
-        imagesDownloadLink.appendChild(images);
-        imagesDownloadLink.classList.add('box');
-        images.setAttribute('src' , data.results[i].urls.regular);
-        displayImages.appendChild(imagesDownloadLink);
+        var linkToImg = document.createElement("a");
+        linkToImg.href = data.results[i].urls.raw;
+        linkToImg.target = 'imgOpened';
+        linkToImg.addEventListener('click', openingImg);
+        linkToImg.appendChild(images);
+        linkToImg.classList.add('box');
+        images.src = data.results[i].urls.small;
+        images.loading = 'lazy';
+        displayImages.appendChild(linkToImg);
     }
 });
 
@@ -40,14 +41,16 @@ fetch(miniSplash2)
 .then(data =>{
     for(i = 0 ; i < data.results.length; i++){
         var images = document.createElement("img");
-        var imagesDownloadLink = document.createElement("a");
-        Object.assign(imagesDownloadLink, {
-            href: data.results[i].urls.full,
-            target: '_blank'
+        var linkToImg = document.createElement("a");
+        Object.assign(linkToImg, {
+            href: data.results[i].urls.raw,
+            target: 'imgOpened'
         });
-        imagesDownloadLink.appendChild(images);
-        imagesDownloadLink.classList.add('box');
-        images.setAttribute('src' , data.results[i].urls.regular);
-        displayImages2.appendChild(imagesDownloadLink);
+        linkToImg.addEventListener('click', openingImg);
+        linkToImg.appendChild(images);
+        linkToImg.classList.add('box');
+        images.src = data.results[i].urls.small;
+        images.loading = 'lazy';
+        displayImages2.appendChild(linkToImg);
     }
 });
