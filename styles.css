@@ -7,8 +7,9 @@
         --logo: linear-gradient(90deg, rgb(120,120,120), rgb(60,60,60));
         --font-clr: rgba(0,0,0,0.9);
         --label-clr: rgba(255,255,255,0.9);
-        --active-clr: rgba(255,255,255,0.9);
-        --border: 1px solid rgb(140,140,140);
+        --active-clr: rgba(220,220,220,0.9);
+        --border: 1px solid rgb(160,160,160);
+        --loading-circle: 5px double rgb(50,50,50); 
     }
 }
 @media (prefers-color-scheme: dark){
@@ -21,6 +22,7 @@
         --label-clr: rgba(255,255,255,0.9);
         --active-clr: rgba(40,40,40,0.9);
         --border: 1px solid rgb(40,40,40);
+        --loading-circle: 5px double rgb(150,150,150);
     }
 }
 *,
@@ -74,7 +76,7 @@ body{
     left: 50%;
     padding-block: 2em;
     transform: translate(-50%, -50%) scale(0);
-    background-color: var(--secondary-bg-clr);
+    background-color: var(--bg-clr);
     display: grid;
     gap: 2em;
     flex-direction: column;
@@ -100,10 +102,10 @@ body{
 }
 .loadingImg{
     position: fixed;
-    width: 4rem;
-    height: 4rem;
-    border: 8px double var(--active-clr);
-    border-top-color: var(--secondary-bg-clr);
+    width: 5rem;
+    height: 5rem;
+    border: var(--loading-circle);
+    border-top-color: rgb(0,0,0,0);
     border-radius: 999px;
     display: flex;
     align-self: center;
@@ -164,7 +166,8 @@ nav ul{
     gap: .3rem;
     align-items: center;
     justify-content: center;
-    background-color: var(--secondary-bg-clr);
+    background-color: var(--bg-clr);
+    border: var(--border);
     border-radius: 999px;
 }
 ul li{
@@ -277,7 +280,6 @@ header ul li a{
     text-align: center;
     font-size: 1.5rem;
     font-weight: 500;
-    text-shadow: 0 0 10px rgba(0,0,0,0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -320,9 +322,7 @@ header ul li a{
     background-color: rgba(0,0,0,0.4);
     color: var(--label-clr);
     font-size: 2.2rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
