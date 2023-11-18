@@ -62,7 +62,7 @@ function openingImg(event) {
     imgOpened.loading = 'lazy';
 }
   
-  var overlay = document.querySelector("#openedImgOverlay");
+var overlay = document.querySelector("#openedImgOverlay");
 overlay.addEventListener('click', function(event) {
   if (event.target === overlay) {
     document.body.classList.remove('disable-scroll');
