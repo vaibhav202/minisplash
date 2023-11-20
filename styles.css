@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "InterVar";
+    font-family: InterVariable;
     font-weight: 100 900;
     font-display: swap;
     font-style: normal;
@@ -44,9 +44,9 @@
     scroll-behavior: smooth;
     text-rendering: auto;
     line-height: 1.5;
-    font-family: InterVar, system-ui, sans-serif;
-    -webkit-font-feature-settings: "opsz";
-            font-feature-settings: "opsz";
+    font-family: InterVariable, system-ui;
+    -webkit-font-feature-settings: 'liga' 1, 'calt' 1;
+            font-feature-settings: 'liga' 1, 'calt' 1;
     list-style: none;
     color: var(--font-clr);
     -webkit-tap-highlight-color: transparent;
