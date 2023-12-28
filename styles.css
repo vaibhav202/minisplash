@@ -47,6 +47,7 @@
     font-family: InterVariable, system-ui;
     -webkit-font-feature-settings: 'liga' 1, 'calt' 1;
             font-feature-settings: 'liga' 1, 'calt' 1;
+    font-variation-settings: 'opsz' 32;
     list-style: none;
     color: var(--font-clr);
     -webkit-tap-highlight-color: transparent;
